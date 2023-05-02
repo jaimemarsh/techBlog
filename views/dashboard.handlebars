@@ -1,0 +1,13 @@
+<h2>Your Dashboard</h2>
+{{#if posts.length}}
+<section>
+    {{#each posts as |post|}}
+    {{> post-info post}}
+    <a href="/public/js/edit-post.js"><button class="btn">Edit Post</button></a>
+</section>
+{{/each}}
+{{else}}
+<p>Nothing has been posted yet</p>
+
+{{/if}}
+{{!-- <script src="../public/js/new-post.js"></script> --}}

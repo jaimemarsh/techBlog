@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
 class Comment extends Model { }
+
 Comment.init(
     {
         id: {
@@ -8,6 +10,13 @@ Comment.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+        },
+        comment_text: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -18,18 +27,11 @@ Comment.init(
             },
         },
         post_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'post',
                 key: 'id',
-            },
-        },
-        comment_text: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
             },
         },
     },
@@ -41,13 +43,5 @@ Comment.init(
         modelName: 'comment',
     }
 );
+
 module.exports = Comment;
-
-
-
-
-
-
-
-
-

@@ -1,34 +1,28 @@
-const { Module } = require('module');
 const { Post } = require('../models');
 
 const postData = [
     {
-        title: "Post Title 1",
-        post_content: "Post content 1",
+        title: "Hey",
+        post_text: "this is a post!",
         user_id: 1
     },
     {
-        title: "Post Title 2",
-        post_content: "Post content 2",
+        title: "Hi",
+        post_text: "this is a post!",
         user_id: 2
     },
     {
-        title: "Post Title 3",
-        post_content: "Post content 3",
+        title: "What up",
+        post_text: "this is a post!",
         user_id: 3
     },
     {
-        title: "Post Title 4",
-        post_content: "Post content 4",
+        title: "Yooo",
+        post_text: "this is a post!",
         user_id: 4
-    },
-    {
-        title: "Post Title 5",
-        post_content: "Post content 5",
-        user_id: 5
-    },
-]
+    }
+];
 
-const seedPosts = () => Post.bulkCreate(postData)
+const seedPosts = () => Post.bulkCreate(postData);
 
-Module.exports = seedPosts;
+module.exports = seedPosts;

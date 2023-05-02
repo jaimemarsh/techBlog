@@ -1,33 +1,28 @@
 const { User } = require('../models');
 
-const postData = [
+const userData = [
     {
-        title: "User1",
-        email: "User1@user.com",
-        password: '1'
+        username: "jaimem",
+        password: "techBlog123"
     },
     {
-        title: "User2",
-        email: "User2@user.com",
-        password: '2'
+        username: "user1",
+        password: "techBlog123"
     },
     {
-        title: "User3",
-        email: "User3@user.com",
-        password: '3'
+        username: "user2",
+        password: "techBlog123"
     },
     {
-        title: "User4",
-        email: "User4@user.com",
-        password: '4'
+        username: "user4",
+        password: "techBlog123"
     },
     {
-        title: "User5",
-        email: "User5@user.com",
-        password: '5'
-    },
+        username: "user5",
+        password: "techBlog123"
+    }
 ]
 
-const seedUser = () => User.bulkCreate(userData)
+const seedUsers = () => User.bulkCreate(userData);
 
-Module.exports = seedUser;
+module.exports = seedUsers;

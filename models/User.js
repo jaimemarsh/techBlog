@@ -1,12 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
+const { beforeCreate, beforeUpdate, beforeBulkCreate } = require('./comment');
 
 class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
+
 User.init(
     {
         id: {
@@ -15,40 +17,35 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        user_name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: { isEmail: true }
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { len: [1] }
+            validate: {
+                len: [8],
+            },
         },
     },
     {
         hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10)
+            beforeCreate: async (newUserData) => {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10)
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
             },
-            async beforeBulkCreate(users) {
+            beforeBulkCreate: async (users) => {
                 for (const user of users) {
                     user.password = await bcrypt.hash(user.password, 10)
                 }
             }
-        }
-    },
-    {
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
@@ -56,4 +53,5 @@ User.init(
         modelName: 'user',
     }
 );
+
 module.exports = User;
