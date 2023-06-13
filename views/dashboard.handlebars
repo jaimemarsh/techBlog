@@ -1,13 +1,22 @@
-<h2>Your Dashboard</h2>
 {{#if posts.length}}
-<section>
-    {{#each posts as |post|}}
-    {{> post-info post}}
-    <a href="/public/js/edit-post.js"><button class="btn">Edit Post</button></a>
+<section class="container is-max-widescreen">
+  {{!-- <div>
+    <a href="/dashboard/new"><button type="submit" class="button is-light is-outlined is-rounded my-6">Post
+        Something!</button></a>
+  </div> --}}
+  {{#each posts as |post|}}
+  {{> post-info post}}
+  {{/each}}
+  {{#each comments as |comment|}}
+  {{> comments comment}}
+  {{/each}}
+  {{else}}
+  <h1 class="has-test-white title">Nothing has been posted yet</h1>
+  {{/if}}
+  <div>
+    <a href="/dashboard/new"><button type="submit" class="button is-light is-outlined is-rounded my-6">Post
+        Something!</button></a>
+  </div>
 </section>
-{{/each}}
-{{else}}
-<p>Nothing has been posted yet</p>
-
-{{/if}}
-{{!-- <script src="../public/js/new-post.js"></script> --}}
+{{!--
+<script src="/js/new-post.js"></script> --}}

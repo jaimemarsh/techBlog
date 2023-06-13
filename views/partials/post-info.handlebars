@@ -1,14 +1,19 @@
-<div class="card">
-    <div class="card-header">
-        <a href="/post/{{id}}">{{title}}</a>
+<section class="card container is-max-widescreen my-3">
+  <div class="media card-content">
+    <div class="media-content">
+      <div class="content has-text-center">
+        <div>
+          <strong>@{{user.username}}</strong>
+        </div>
+        <a href="/post/{{id}}" class="title is-size-6">{{title}}</a>
+        <div>
+          {{post_text}}
+        </div>
+        {{!-- <div>
+          {{format_date}}
+        </div> --}}
+      </div>
     </div>
-    <div>{{post_text}}</div>
-    <div>
-        <p>
-            {{user.username}}
-        </p>
-            <a href="post/{{id}}">{{<comments.length}}</comments></a>
-        
-    </div>
-
-</div>
+</section>
+<section>
+</section>

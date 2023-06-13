@@ -1,7 +1,9 @@
-<h1>Recent Posts</h1>
+<section class="container is-max-widescreen">
+  <h1 class="title">Recent Posts</h1>
+  <div>
+    {{#each posts as |post|}}
+    {{> post-info post }}
+    {{/each}}
+  </div>
 
-<div>
-  {{#each posts as |post|}}
-  {{> post-info post }}
-  {{/each}}
-</div>
+</section>

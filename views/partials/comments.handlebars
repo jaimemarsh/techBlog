@@ -1,10 +1,12 @@
-<div class="card-header">
+<section class="container is-max-widescreen">
+  <div class="card">
     {{#each this}}
-    <div>
-        {{user.username}}
+    <div id="userID">
+      {{user.username}}
     </div>
     <div>
-        {{comment_text}}
+      {{comment_text}}
     </div>
     {{/each}}
-</div>
+  </div>
+</section>
