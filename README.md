@@ -1,3 +1,3 @@
-Get Techy is a Tech Blog where you can create your own account, login, and post your opinions on the tech world where other people can see! It is currently not deployed, but feel free to look through the code. It will be deployed soon!
+Get Techy is a Tech Blog where you can create your own account, login, and post your opinions on the tech world where other people can see! Link to deployed application: https://get-techy.herokuapp.com/
 <img src="images/techBlogSS.png">
-If you have any questions about the repo, open an issue or contact me directly at jaimemarsh.web@gmail.com. You can find more of my work at my https://github.com/jaimemarsh  No need for installation. Link to deployed site: COMING SOON
+If you have any questions about the repo, open an issue or contact me directly at jaimemarsh.web@gmail.com. You can find more of my work at my https://github.com/jaimemarsh  No need for installation. 
